@@ -1,0 +1,116 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+  color: #1a1f36;
+}
+
+body, html {
+  min-height: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+
+.home-root {
+  position: relative;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Animated background */
+.home-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.box {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  opacity: 0.3;
+  border-radius: 50%;
+}
+
+/* Colors from your login page */
+.box-background--blue { background-color: #5469d4; top:10%; left: -100px; }
+.box-background--cyan200 { background-color: #7fd3ed; top:30%; left: 50%; }
+.box-background--gray100 { background-color: #e3e8ee; top:60%; left: -200px; }
+.box-background--blue800 { background-color: #212d63; top:50%; left: 80%; }
+
+/* Animations */
+@keyframes animationLeftRight {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(1200px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes animationRightLeft {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-1200px); }
+  100% { transform: translateX(0); }
+}
+
+.animationLeftRight { animation: animationLeftRight 10s ease-in-out infinite; }
+.animationRightLeft { animation: animationRightLeft 12s ease-in-out infinite; }
+.tans3s { animation-duration: 15s; }
+.tans4s { animation-duration: 18s; }
+
+/* Table */
+.table-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  overflow-x: auto;
+  border-radius: 8px;
+  background-color: rgba(255,255,255,0.95);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  z-index: 1;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e3e8ee;
+  font-size: 16px;
+}
+
+th {
+  background-color: #9db2ec;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #f7f8fa;
+}
+
+tr:hover {
+  background-color: #e6f0ff;
+  transition: background 0.3s;
+}
+
+@media (max-width: 600px) {
+  th, td { font-size: 14px; padding: 10px; }
+}

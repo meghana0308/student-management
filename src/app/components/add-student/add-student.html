@@ -1,0 +1,76 @@
+<div class="form-root">
+
+  <!-- Animated background -->
+  <div class="form-background">
+    <div class="box box-background--blue animationLeftRight"></div>
+    <div class="box box-background--cyan200 animationRightLeft tans3s"></div>
+    <div class="box box-background--gray100 animationLeftRight tans4s"></div>
+    <div class="box box-background--blue800 animationRightLeft"></div>
+  </div>
+
+  <!-- Form -->
+  <div class="form-wrapper">
+    <h2>Add Student</h2>
+    <form class="form__contact" [formGroup]="studentForm" (ngSubmit)="saveStudent()">
+      <fieldset>
+
+        <p>
+          Name: <span class="form__field field--name" data-placeholder="Enter name">
+            <input type="text" formControlName="name" placeholder="Enter name" />
+          </span>
+          <span class="info" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+            <span *ngIf="name?.errors?.['required']">Name is required.</span>
+            <span *ngIf="name?.errors?.['minlength']">Name must be at least 5 characters.</span>
+          </span>
+        </p>
+
+        <p>
+          Class: <span class="form__field field--class" data-placeholder="Select class">
+            <select formControlName="class">
+              <option value="">-- Select Class --</option>
+              <option *ngFor="let c of classes" [value]="c">{{c}}</option>
+            </select>
+          </span>
+          <span class="info" *ngIf="classField?.value == 9">You will appear in board exams soon. All the Best !!</span>
+          <span class="info" *ngIf="classField?.value == 6">Welcome to middle school!</span>
+          <span class="info" *ngIf="classField?.value && classField?.value != 6 && classField?.value != 9">
+            Education and hobby go hand in hand!
+          </span>
+        </p>
+
+        <p>
+          Gender: <span class="form__field field--gender" data-placeholder="Select gender">
+            <label><input type="radio" formControlName="gender" value="Male" /> Male</label>
+            <label><input type="radio" formControlName="gender" value="Female" /> Female</label>
+          </span>
+          <span class="info" *ngIf="gender?.invalid && (gender?.dirty || gender?.touched)">Gender is required.</span>
+        </p>
+
+        <p>
+          <label><input type="checkbox" formControlName="hasHobby" /> I have a hobby</label>
+        </p>
+
+        <p *ngIf="hasHobby?.value">
+          Hobby: <span class="form__field field--hobby" data-placeholder="Enter hobby">
+            <input type="text" formControlName="hobby" placeholder="Enter hobby" />
+          </span>
+        </p>
+
+        <p>
+          Favorite Subject: <span class="form__field field--subject" data-placeholder="Select subject">
+            <select formControlName="favoriteSubject">
+              <option value="">-- Select Subject --</option>
+              <option *ngFor="let sub of favoriteSubjects" [value]="sub">{{sub}}</option>
+            </select>
+          </span>
+        </p>
+
+        <p>
+          <button type="submit" [disabled]="studentForm.invalid">Save Student &#187;</button>
+        </p>
+
+      </fieldset>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,171 @@
+.form-root {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Animated background */
+.form-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.box {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.box-background--blue { background-color: #5469d4; top:10%; left:-100px; }
+.box-background--cyan200 { background-color: #7fd3ed; top:30%; left:50%; }
+.box-background--gray100 { background-color: #e3e8ee; top:60%; left:-200px; }
+.box-background--blue800 { background-color: #212d63; top:50%; left:80%; }
+
+@keyframes animationLeftRight {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(1200px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes animationRightLeft {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-1200px); }
+  100% { transform: translateX(0); }
+}
+
+.animationLeftRight { animation: animationLeftRight 10s ease-in-out infinite; }
+.animationRightLeft { animation: animationRightLeft 12s ease-in-out infinite; }
+.tans3s { animation-duration: 15s; }
+.tans4s { animation-duration: 18s; }
+
+/* Form styling */
+.form-wrapper {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  padding: 30px 40px;
+  width: 600px;
+  max-width: 95%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  font-family: 'Shadows Into Light', cursive;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2em;
+  color: #212d63;
+}
+
+.form__contact fieldset {
+  border: none;
+  padding: 0;
+}
+
+.form__contact p {
+  margin-bottom: 15px;
+}
+
+.form__contact label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form__contact input[type="text"],
+.form__contact select,
+.form__contact button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.form__contact input[type="submit"],
+.form__contact button {
+  background-color: #5469d4;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.form__contact input[type="submit"]:hover,
+.form__contact button:hover {
+  transform: translateY(-3px);
+}
+
+.form__field {
+  display: inline-block;
+  width: 100%;
+}
+
+.form__field input,
+.form__field select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 16px;
+}
+
+.form__contact input[type="radio"],
+.form__contact input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.info {
+  font-size: 13px;
+  color: #E08183;
+  font-style: italic;
+}
+/* Radio and checkbox container */
+.form__field label {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* space between options */
+  font-weight: normal; /* optional: lighter than label for text */
+  cursor: pointer;
+}
+
+/* Radio and checkbox inputs */
+.form__contact input[type="radio"],
+.form__contact input[type="checkbox"] {
+  margin-right: 8px; /* space between input and text */
+  vertical-align: middle;
+}
+.form__field.field--gender,
+.form__field.field--hobby {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* spacing between options */
+}
+
+/* Make validation/info messages consistent */
+.form__contact .info {
+  display: block;
+  margin-top: 5px;
+  font-size: 20px;     /* same color as other info messages */
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Ensure radio/checkbox validation messages align properly */
+.form__field.field--gender .info,
+.form__field.field--hobby .info {
+  margin-left: 0;       /* align with field text */
+  margin-top: 5px;
+}
